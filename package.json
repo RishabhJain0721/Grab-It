@@ -1,13 +1,22 @@
 {
-  "name": "web-scraper",
+  "name": "scrapio",
   "version": "1.0.0",
   "description": "web scraper npm package",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "scraping",
+    "web scraper",
+    "scraper",
+    "web scraping",
+    "web scraper npm package",
+    "web scraping npm package",
+    "web scraper npm"
+  ],
+  "author": "Rishabh Jain",
+  "license": "MIT",
   "dependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
@@ -20,5 +29,9 @@
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",
     "tsx": "^4.19.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RishabhJain0721/Scrapio"
   }
 }
