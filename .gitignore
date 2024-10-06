@@ -1,9 +1,6 @@
 # Node modules
 node_modules/
 
-# TypeScript output directory
-dist/
-
 # Logs
 *.log
 

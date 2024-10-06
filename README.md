@@ -1,4 +1,4 @@
-# Scrapio
+# Grab-It
 
 A web scraping tool built with TypeScript, utilizing Cheerio and Axios to fetch and filter HTML content from web pages.
 
@@ -12,14 +12,15 @@ A web scraping tool built with TypeScript, utilizing Cheerio and Axios to fetch 
 ## Installation
 
 ```
-npm install scrapio
+npm install grab-it
 ```
 
 ## Usage
+
 First, import the scraper module and use it to scrape web pages.
 
 ```bash
-import { scraper } from "scrapio";
+import { scraper } from "grab-it";
 
 // Example usage
 (async () => {
@@ -59,21 +60,22 @@ scraper(url, options):
 
 ```ts
 const html = await scraper("https://example.com");
-console.log(html);  // Full HTML content of the page
+console.log(html); // Full HTML content of the page
 ```
+
 #### Scrape with Tag Inclusion/Exclusion
 
 ```ts
 const filtered = await scraper("https://example.com", {
-  includeTags: ["html", "body", "head", "title","p", "div"],
+  includeTags: ["html", "body", "head", "title", "p", "div"],
   excludeTags: ["script"],
 });
-console.log(filtered);  // HTML content with only <p> and <div>, excluding <script>
+console.log(filtered); // HTML content with only <p> and <div>, excluding <script>
 ```
 
 **Note :** If you are including a certain tag but not its parent tag, it won't be present in the result.
 
-eg. If you include ***p*** tag but not include ***body***, no ***p*** tags will actually be included.
+eg. If you include **_p_** tag but not include **_body_**, no **_p_** tags will actually be included.
 
 #### Scrape Using CSS Selectors
 
@@ -81,17 +83,16 @@ eg. If you include ***p*** tag but not include ***body***, no ***p*** tags will 
 const selectedContent = await scraper("https://example.com", {
   selector: [".header", "#main"],
 });
-console.log(selectedContent);  // Text content from elements matching the provided selectors
+console.log(selectedContent); // Text content from elements matching the provided selectors
 ```
 
 #### Scrape Only Data (Text Content)
 
 ```ts
 const data = await scraper("https://example.com", { onlyData: true });
-console.log(data);  // Plain text content of the page
+console.log(data); // Plain text content of the page
 ```
 
 ## License
+
 MIT
-
-

@@ -1,7 +1,7 @@
 {
-  "name": "scrapio",
+  "name": "grab-it",
   "version": "1.0.0",
-  "description": "web scraper npm package",
+  "description": "A web scraping tool built with TypeScript, utilizing Cheerio and Axios to fetch and filter HTML content from web pages.",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -31,6 +31,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/RishabhJain0721/Scrapio"
+    "url": "https://github.com/RishabhJain0721/Grab-It"
   }
 }
