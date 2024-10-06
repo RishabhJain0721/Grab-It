@@ -1,4 +1,4 @@
-# Grab-It
+# Scrapyyy
 
 A web scraping tool built with TypeScript, utilizing Cheerio and Axios to fetch and filter HTML content from web pages.
 
@@ -12,7 +12,7 @@ A web scraping tool built with TypeScript, utilizing Cheerio and Axios to fetch 
 ## Installation
 
 ```
-npm install grab-it
+npm install scrapyyy
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ npm install grab-it
 First, import the scraper module and use it to scrape web pages.
 
 ```bash
-import { scraper } from "grab-it";
+import { scraper } from "scrapyyy";
 
 // Example usage
 (async () => {
