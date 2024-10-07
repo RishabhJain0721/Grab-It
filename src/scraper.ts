@@ -56,6 +56,7 @@ const scrape = async (
       return result.trim();
     }
 
+    console.log($("html").html());
     if (options.onlyData) {
       return $("html").text() || "";
     }
@@ -64,5 +65,10 @@ const scrape = async (
     throw error;
   }
 };
+
+scrape("https://quiz-phi-three.vercel.app/", {
+  //   includeTags: ["html", "body", "head", "title", "p", "div"],
+  selector: [".w", "#skull"],
+});
 
 export default scrape;

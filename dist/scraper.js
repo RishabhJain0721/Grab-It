@@ -38,19 +38,41 @@ const scrape = async (url, options = {}) => {
         if (options.includeTags && options.includeTags.length > 0) {
             $("*").each((_, element) => {
                 const tagName = $(element).prop("tagName");
-                if (tagName && !options.includeTags?.includes(tagName)) {
+                if (tagName && !options.includeTags?.includes(tagName.toLowerCase())) {
                     $(element).remove();
                 }
             });
-            return $("html").html() || "";
         }
         if (options.excludeTags && options.excludeTags.length > 0) {
             for (const tag of options.excludeTags) {
                 $(tag).remove();
             }
         }
+        if (options.selector && options.selector.length > 0) {
+            let result = "";
+            for (const selector of options.selector) {
+                let elements;
+                if (selector.startsWith(".")) {
+                    // Class selector
+                    elements = $(selector);
+                }
+                else if (selector.startsWith("#")) {
+                    // ID selector
+                    elements = $(selector);
+                }
+                else {
+                    // Tag name
+                    elements = $(selector);
+                }
+                elements.each((_, element) => {
+                    result += $(element).text().trim() + "\n";
+                });
+            }
+            return result.trim();
+        }
+        console.log($("html").html());
         if (options.onlyData) {
-            return $("body").text() || "";
+            return $("html").text() || "";
         }
         return $("html").html() || "";
     }
@@ -58,4 +80,8 @@ const scrape = async (url, options = {}) => {
         throw error;
     }
 };
+scrape("https://quiz-phi-three.vercel.app/", {
+    //   includeTags: ["html", "body", "head", "title", "p", "div"],
+    selector: [".w", "#skull"],
+});
 exports.default = scrape;
