@@ -66,7 +66,7 @@ const scrape = async (
     }
     return $("html").html() || "";
   } catch (error: any) {
-    throw error;
+    throw { error: error.message, statusText: error.response.statusText };
   }
 };
 
