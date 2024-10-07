@@ -36,27 +36,31 @@ const scrape = async (
     if (options.selector && options.selector.length > 0) {
       let result = "";
       for (const selector of options.selector) {
-        let elements: any;
+        let elements;
         if (selector.startsWith(".")) {
           // Class selector
-          elements = $(selector);
+          elements = $(selector).toArray();
         } else if (selector.startsWith("#")) {
           // ID selector
-          elements = $(selector);
+          elements = $(selector).toArray();
         } else {
           // Tag name
-          elements = $(selector);
+          elements = $(selector).toArray();
         }
 
-        elements.each((_: any, element: any) => {
-          result += $(element).text().trim() + "\n";
+        elements.forEach((element) => {
+          const htmlString = $.html(element);
+          result += htmlString + "\n";
         });
+      }
+
+      if (options.onlyData) {
+        return result.replace(/<[^>]*>/g, "").trim();
       }
 
       return result.trim();
     }
 
-    console.log($("html").html());
     if (options.onlyData) {
       return $("html").text() || "";
     }
@@ -65,10 +69,5 @@ const scrape = async (
     throw error;
   }
 };
-
-scrape("https://quiz-phi-three.vercel.app/", {
-  //   includeTags: ["html", "body", "head", "title", "p", "div"],
-  selector: [".w", "#skull"],
-});
 
 export default scrape;
