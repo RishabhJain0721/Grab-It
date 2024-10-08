@@ -80,7 +80,7 @@ const scrape = async (url, options = {}) => {
         return $("html").html() || "";
     }
     catch (error) {
-        throw error;
+        throw { error: error.message, statusText: error.response.statusText };
     }
 };
 exports.default = scrape;

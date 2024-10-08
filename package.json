@@ -1,6 +1,6 @@
 {
   "name": "scrapyyy",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A web scraping tool built with TypeScript, utilizing Cheerio and Axios to fetch and filter HTML content from web pages.",
   "main": "dist/index.js",
   "scripts": {
@@ -32,5 +32,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/RishabhJain0721/scrapyyy"
+  },
+  "bin": {
+    "scrapyyy": "./dist/bin/cli.js"
   }
 }
